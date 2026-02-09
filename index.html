@@ -68,13 +68,24 @@
 
   <br><br>
 
-  <button id="yesBtn">YES ❤️</button>
-  <button id="noBtn">NO 😢</button>
+ <button id="yesBtn">Yes 😁</button>
+  <button id="noBtn">NO 😂</button>
 
-  <div class="fromText">From Iyyan ❤️</div>
+  <div class="fromText">From Iyyan ❤️</div>     
 
+<!-- Surprise Box -->
+<div id="surpriseBox" style="display:none; margin-top:30px;">
+  <h2>Yayyyy Abi 🥰💖</h2>
+  <p>You accepted my love ❤️</p>
+
+  <img src="proposal.png" width="250" style="border-radius:20px; margin-top:20px;">
+
+  <h2>Happy Valentine’s Day 💘</h2>
+</div>
   <script>
     const noBtn = document.getElementById("noBtn");
+
+const yesBtn = document.getElementById("yesBtn"); 
 
     function moveNo() {
       noBtn.style.left = Math.random() * 300 + "px";
@@ -94,6 +105,10 @@
 
       setTimeout(() => heart.remove(), 5000);
     }, 300);
+// YES Button Surprise
+yesBtn.addEventListener("click", () => {
+  document.getElementById("surpriseBox").style.display = "block";
+});
   </script>
 
 </body>
