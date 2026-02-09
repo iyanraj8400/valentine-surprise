@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Abi Valentine 💖</title>
+
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+      background: pink;
+      padding-top: 100px;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 35px;
+    }
+
+    button {
+      padding: 15px 25px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yesBtn {
+      background: red;
+      color: white;
+    }
+
+    #noBtn {
+      background: white;
+      position: absolute;
+    }
+
+    .fromText {
+      margin-top: 40px;
+      font-size: 20px;
+      color: darkred;
+      font-weight: bold;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-10vh); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Abarna (Abi) 💖 <br> Will you be my Valentine?</h1>
+
+  <!-- 🎶 Your Song -->
+  <audio controls autoplay loop>
+    <source src="abi_song.mp3" type="audio/mpeg">
+  </audio>
+
+  <br><br>
+
+  <button id="yesBtn">YES ❤️</button>
+  <button id="noBtn">NO 😢</button>
+
+  <div class="fromText">From Iyyan ❤️</div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    function moveNo() {
+      noBtn.style.left = Math.random() * 300 + "px";
+      noBtn.style.top = Math.random() * 200 + "px";
+    }
+
+    noBtn.addEventListener("mouseover", moveNo);
+    noBtn.addEventListener("touchstart", moveNo);
+
+    // Hearts animation
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 5000);
+    }, 300);
+  </script>
+
+</body>
+</html>
