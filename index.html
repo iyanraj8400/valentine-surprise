@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Valentine Surprise 💖</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Abi Valentine Surprise</title>
 
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: pink;
       font-family: Arial, sans-serif;
+      background: pink;
       text-align: center;
       overflow-x: hidden;
+      padding: 20px;
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin-top: 50px;
-      font-weight: bold;
+      font-size: 40px;
+      margin-top: 40px;
     }
 
     button {
-      padding: 15px 35px;
-      font-size: 18px;
+      padding: 15px 30px;
+      font-size: 20px;
       border: none;
-      border-radius: 12px;
+      border-radius: 15px;
       cursor: pointer;
-      margin: 20px;
+      margin: 15px;
     }
 
     #yesBtn {
@@ -37,13 +37,11 @@
 
     #noBtn {
       background: white;
-      color: black;
-      position: absolute;
     }
 
     .fromText {
-      margin-top: 25px;
-      font-size: 20px;
+      margin-top: 20px;
+      font-size: 22px;
       font-weight: bold;
       color: darkred;
     }
@@ -53,40 +51,27 @@
       margin-top: 30px;
     }
 
-    #surpriseBox h2 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    #surpriseBox p {
-      font-size: 18px;
-    }
-
-    /* ✅ Image Full Size Mobile */
     #surpriseBox img {
-      width: 95%;
-      max-width: 450px;
+      width: 100%;
+      max-width: 420px;
       height: auto;
       border-radius: 20px;
       margin-top: 20px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* 💕 Floating Hearts */
+    /* Floating Hearts */
     .heart {
       position: fixed;
-      font-size: 22px;
-      animation: floatUp 5s linear infinite;
+      font-size: 20px;
+      animation: float 5s linear infinite;
     }
 
-    @keyframes floatUp {
-      0% {
-        transform: translateY(100vh);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh);
-        opacity: 0;
-      }
+    @keyframes float {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-10vh); }
     }
   </style>
 </head>
@@ -95,24 +80,24 @@
 
   <h1>Abarna (Abi) 💖<br>Will you be my Valentine?</h1>
 
-  <!-- 🎶 Song plays after YES -->
-  <audio id="bgMusic">
+  <!-- Hidden Song (Plays After YES Click) -->
+  <audio id="bgMusic" loop>
     <source src="abi_song.mp3" type="audio/mpeg">
   </audio>
 
   <br><br>
 
   <button id="yesBtn">Yes 😁</button>
-  <button id="noBtn">No 😉</button>
+  <button id="noBtn">NO 😉</button>
 
   <div class="fromText">From Iyyan ❤️</div>
 
-  <!-- 🎁 Surprise Box -->
+  <!-- Surprise Box -->
   <div id="surpriseBox">
     <h2>Yayyyy Abi 🥰💖</h2>
     <p>You accepted my love ❤️</p>
 
-    <img src="https://i.postimg.cc/vTRssQb1/file-000000.png" alt="Cute Couple">
+    <img src="https://i.postimg.cc/vTRssQb1/file-000000.png">
 
     <h2>Happy Valentine’s Day 💘</h2>
   </div>
@@ -122,8 +107,9 @@
     const yesBtn = document.getElementById("yesBtn");
     const music = document.getElementById("bgMusic");
 
-    // 🏃 No button runs away
+    // NO button runaway
     function moveNo() {
+      noBtn.style.position = "absolute";
       noBtn.style.left = Math.random() * 300 + "px";
       noBtn.style.top = Math.random() * 300 + "px";
     }
@@ -131,25 +117,22 @@
     noBtn.addEventListener("mouseover", moveNo);
     noBtn.addEventListener("touchstart", moveNo);
 
-    // 💖 Hearts animation
+    // Floating hearts
     setInterval(() => {
       const heart = document.createElement("div");
       heart.className = "heart";
       heart.innerHTML = "💖";
       heart.style.left = Math.random() * 100 + "vw";
-
       document.body.appendChild(heart);
 
-      setTimeout(() => {
-        heart.remove();
-      }, 5000);
+      setTimeout(() => heart.remove(), 5000);
     }, 300);
 
-    // ✅ YES Button Surprise + Music
+    // YES click surprise + music
     yesBtn.addEventListener("click", () => {
       document.getElementById("surpriseBox").style.display = "block";
 
-      // Play music only after click
+      // Play song only after click (Mobile allowed)
       music.play();
     });
   </script>
